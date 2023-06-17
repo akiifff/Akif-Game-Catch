@@ -1,0 +1,275 @@
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Anime Template">
+    <meta name="keywords" content="Anime, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Game Catch</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{%static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{%static 'css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{%static 'css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{%static 'css/plyr.css' %}" type="text/css">
+    <link rel="stylesheet" href="{%static 'css/nice-select.css' %}" type="text/css">
+    <link rel="stylesheet" href="{%static 'css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{%static 'css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{%static 'css/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'front/css/style.css' %}"/>
+</head>
+<style type="text/css">
+    .form-style-1 {
+        margin:10px auto;
+        max-width: 400px;
+        padding: 20px 12px 10px 20px;
+        font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    }
+    .form-style-1 li {
+        padding: 0;
+        display: block;
+        list-style: none;
+        margin: 10px 0 0 0;
+    }
+    .form-style-1 label{
+        margin:0 0 3px 0;
+        padding:0px;
+        display:block;
+        font-weight: bold;
+        color:white;
+    }
+    .form-style-1 input[type=text],
+    .form-style-1 input[type=date],
+    .form-style-1 input[type=datetime],
+    .form-style-1 input[type=number],
+    .form-style-1 input[type=search],
+    .form-style-1 input[type=time],
+    .form-style-1 input[type=url],
+    .form-style-1 input[type=email],
+    textarea,
+    select{
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        border:1px solid #BEBEBE;
+        padding: 7px;
+        margin:0px;
+        -webkit-transition: all 0.30s ease-in-out;
+        -moz-transition: all 0.30s ease-in-out;
+        -ms-transition: all 0.30s ease-in-out;
+        -o-transition: all 0.30s ease-in-out;
+        outline: none;
+    }
+    .form-style-1 input[type=text]:focus,
+    .form-style-1 input[type=date]:focus,
+    .form-style-1 input[type=datetime]:focus,
+    .form-style-1 input[type=number]:focus,
+    .form-style-1 input[type=search]:focus,
+    .form-style-1 input[type=time]:focus,
+    .form-style-1 input[type=url]:focus,
+    .form-style-1 input[type=email]:focus,
+    .form-style-1 textarea:focus,
+    .form-style-1 select:focus{
+        -moz-box-shadow: 0 0 8px #88D5E9;
+        -webkit-box-shadow: 0 0 8px #88D5E9;
+        box-shadow: 0 0 8px #88D5E9;
+        border: 1px solid #88D5E9;
+    }
+    .form-style-1 .field-divided{
+        width: 49%;
+    }
+    
+    .form-style-1 .field-long{
+        width: 100%;
+    }
+    .form-style-1 .field-select{
+        width: 100%;
+    }
+    .form-style-1 .field-textarea{
+        height: 100px;
+    }
+    .form-style-1 input[type=submit], .form-style-1 input[type=button]{
+        background: #b01ba5;
+        padding: 8px 15px 8px 15px;
+        border: none;
+        color: #fff;
+    }
+    .form-style-1 input[type=submit]:hover, .form-style-1 input[type=button]:hover{
+        background: #000000;
+        box-shadow:none;
+        -moz-box-shadow:none;
+        -webkit-box-shadow:none;
+    }
+    .form-style-1 .required{
+        color:red;
+    }
+    </style>
+<body style="background-color:#0c062e">
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+	<header class="header-section">
+		<div class="header-warp">
+			<div class="header-social d-flex justify-content-end">
+				
+			</div>
+			<div class="header-bar-warp d-flex">
+				<!-- site logo -->
+				<a href="/" class="site-logo">
+					<img src="{% static './front/img/glogo.png' %}" alt="">
+				</a>
+				<nav class="top-nav-area w-100">
+					<div class="user-panel">
+						<a href="/customerlogin">login</a> / <a href="/customersignup">Register</a>
+					</div>
+					<!-- Menu -->
+					<ul class="main-menu ">
+						<li><a href="/">Home</a></li>
+						<li><a href="/allgames">Games</a></li>
+						<li><a href="">Crack Games</a></li>
+						<li><a href="/">News</a></li>
+						<li><a href="">Orders</a></li>
+						<li><a href="">Contact</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
+    <!-- Header End -->
+
+    <!-- Breadcrumb Begin -->
+    <div class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__links">
+                        <a href="./index.html"><i class="fa fa-home"></i> Home</a>
+                        <a href="./categories.html">Categories</a>
+                        <span>Romance</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->
+
+    <!-- Anime Section Begin -->
+    <section class="anime-details spad" style="background-color:#0c062e;border-bottom: 2px solid #b01ba5;">
+        <div class="container">
+            <div class="anime__details__content">
+                <div class="container">
+                    <div class="panel panel-success">
+                      <div class="panel-heading">
+                        <h6 style="text-align:center;color:white" class="panel-title">Checkout</h6>
+                      </div>
+                      <br />
+                      {%if Game_in_cart%}
+                      <form method="post">
+                        {% csrf_token %}
+                      <ul class="form-style-1">
+                          <li>
+                              <label>Email <span class="required">*</span></label>
+                              {% render_field addressForm.Email class="field-long"  title="please enter your Valid Email Address" placeholder="Email" %}
+                      
+                          </li>
+                          <li>
+                              <label>Mobile <span class="required">*</span></label>
+                              {% render_field addressForm.Mobile class="field-long" pattern="[0-9]{10}" title="Please enter your Ten digit Phone Number" placeholder="Phone" %}
+                          </li>
+                      
+                          <li>
+                              <label>Shipment Address <span class="required">*</span></label>
+                              {% render_field addressForm.Address id="field5" class="field-long field-textarea" placeholder="Building Number,city, pin" %}
+                      
+                          </li>
+                          <li>
+                              <input type="submit" value="Proceed To Pay" />
+                          </li>
+                      </ul>
+                      </form>
+                      {%else%}
+                      <br><br>
+                      <h1 style="text-align:center; color:red;"> First Add Game In Cart </h1>
+                      <br><br><br><br><br><br><br><br><br><br>
+                      {%endif%}
+                      
+                    </div>
+                  </div>
+                  <br><br><br>
+                 
+                
+              
+            </div>
+        </section>
+        <!-- Anime Section End -->
+
+        <!-- Footer Section Begin -->
+        <footer class="footer">
+            <div class="page-up">
+                <a href="#" id="scrollToTopButton"><span class="arrow_carrot-up"></span></a>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="footer__logo">
+                            <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="footer__nav">
+                            <ul>
+                                <li class="active"><a href="/">Homepage</a></li>
+                                <li><a href="./categories.html">Categories</a></li>
+                                <li><a href="./blog.html">Our Blog</a></li>
+                                <li><a href="#">Contacts</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                          Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+
+                      </div>
+                  </div>
+              </div>
+          </footer>
+          <!-- Footer Section End -->
+
+          <!-- Search model Begin -->
+          <div class="search-model">
+            <div class="h-100 d-flex align-items-center justify-content-center">
+                <div class="search-close-switch"><i class="icon_close"></i></div>
+                <form class="search-model-form">
+                    <input type="text" id="search-input" placeholder="Search here.....">
+                </form>
+            </div>
+        </div>
+        <!-- Search model end -->
+
+        <script src="{%static 'js/jquery-3.3.1.min.js' %}"></script>
+        <script src="{%static 'js/bootstrap.min.js' %}"></script>
+        <script src="{%static 'js/player.js' %}"></script>
+        <script src="{%static 'js/jquery.nice-select.min.js' %}"></script>
+        <script src="{%static 'js/mixitup.min.js' %}"></script>
+        <script src="{%static 'js/jquery.slicknav.js' %}"></script>
+        <script src="{%static 'js/owl.carousel.min.js' %}"></script>
+        <script src="{%static 'js/main.js' %}"></script>
+
+    </body>
+
+    </html>
+    {% endblock content %}

@@ -1,0 +1,105 @@
+
+{% load static %}
+
+{% block content %}
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- jQuery library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</head>
+<style media="screen">
+
+.panel-title {display: inline;font-weight: bold;}
+.checkbox.pull-right { margin: 0; }
+.pl-ziro { padding-left: 0px; }
+</style>
+<br><br>
+<center><h3 style="color:white">PAYMENT PAGE</h3></center>
+<br><br>
+
+<body style="background-color:#0c062e">
+<div class="container" style="text-align:center; padding-left:300px;">
+    <div class="row">
+     
+        <div class="col-xs-12 col-md-4" style="height:500px; width:600px;">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Payment Details
+                    </h3>
+                  
+                </div>
+                <img src='static/qr.jpg' width="300px" height="400px">
+                <div class="panel-body">
+                    <form role="form" method="post">
+                    <div class="form-group">
+                <label for="cardNumber">
+                    Transaction ID</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="cardNumber" pattern="[0-9]{10}" title="Please Enter your Transaction ID" placeholder=" Transaction ID"
+                        required autofocus />
+                     <span class="input-group-addon"> <button onclick="btnClicked()">submit </button> <script> function btnClicked() a href="/payment-success" </a> </script> <span class="glyphicon glyphicon-lock"></span></span>
+                </div>
+                </div>
+                <hr>OR
+                <br>
+                <div class="panel-body">
+                    <form role="form" method="post">
+                    <div class="form-group">
+                        <label for="cardNumber">
+                            CARD NUMBER</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="cardNumber" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" title="Please Enter your 16 Digit Debit/credit Card Number" placeholder="xxxx-xxxx-xxxx-xxxx"
+                                required autofocus />
+                            <span class="input-group-addon"> <span class="glyphicon glyphicon-lock"></span></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4 col-md-4 pull-left">
+                            <div class="form-group">
+                                <label for="cvCode">
+                                    VALID FROM</label>
+                                
+                                    <input type="text" class="form-control" id="expityMonth" pattern="[0-9]{2}-[0-9]{2}" title="Entered the Valid Form in format MM-YY " placeholder="MM - YY" required />
+                            </div>
+                        </div>
+
+                        <div class="col-xs-4 col-md-4">
+                            <div class="form-group">
+                                <label for="expityMonth">
+                                    EXPIRY DATE</label>
+                               
+                                
+                               
+                                    <input type="text" class="form-control" id="expityYear" pattern="[0-9]{2}-[0-9]{2}" title="Entered the Valid Form in format MM-YY " placeholder="MM - YY" required /></div>
+                            
+                        </div>
+                        <div class="col-xs-4 col-md-4 pull-right">
+                            <div class="form-group">
+                                <label for="cvCode">
+                                    CV CODE</label>
+                                <input type="password" class="form-control" id="cvCode" pattern="[0-9]{3}" title="Entered the CVV in Numeric Value" placeholder="CV - xxx" required />
+                            </div>
+                        </div>
+                    </div>
+                    
+                    </form>
+                </div>
+            </div>
+            <ul class="nav nav-pills nav-stacked">
+                <li class="active" style="background-color:#0c062e !important"><a href="#"><span class="badge pull-right">{{total}}</span> Final Payment</a>
+                </li>
+            </ul>
+            <br/>
+            <a href="/payment-success" class="btn btn-success btn-lg btn-block" role="button">Pay</a>
+            <br>
+            <span class="input-group-addon"> <button onclick="btnClicked()">submit </button> <script> function btnClicked() a href="/payment-success" </a> </script> <span class="glyphicon glyphicon-lock"></span></span>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

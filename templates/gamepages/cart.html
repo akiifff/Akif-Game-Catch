@@ -1,0 +1,195 @@
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Anime Template">
+    <meta name="keywords" content="Anime, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Game Catch</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{%static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{%static 'css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{%static 'css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{%static 'css/plyr.css' %}" type="text/css">
+    <link rel="stylesheet" href="{%static 'css/nice-select.css' %}" type="text/css">
+    <link rel="stylesheet" href="{%static 'css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{%static 'css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{%static 'css/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'front/css/style.css' %}"/>
+</head>
+
+<body style="background-color:#0c062e">
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <header class="header-section">
+		<div class="header-warp">
+			<div class="header-social d-flex justify-content-end">
+				
+			</div>
+			<div class="header-bar-warp d-flex">
+				<!-- site logo -->
+				<a href="/" class="site-logo">
+					<img src="{% static './front/img/glogo.png' %}" alt="">
+				</a>
+				<nav class="top-nav-area w-100">
+                    <div class="user-panel">
+						{%if request.user.is_authenticated%}
+						<a href="/logout">Logout</a> 
+                        {%else%}
+                        <a href="/customerlogin">login</a> / <a href="/customersignup">Register</a>
+                        {%endif%}					</div>
+					<!-- Menu -->
+					<ul class="main-menu ">
+						<li><a href="/">Home</a></li>
+						<li><a href="/allgames">Games</a></li>
+						<li><a href="/allcrackgames">Crack Games</a></li>
+						<li><a href="/customernews">News</a></li>
+                        {%if request.user.is_authenticated%}
+						<li><a href="/view-ads">Advertises</a></li>
+						<li><a href="/my-order">Orders</a></li>
+                        {%endif%}
+						<li><a href="/send-cont">Contact</a></li>
+                        {%if request.user.is_authenticated%}
+						<li><a href="/my-profile">Profile</a></li>
+                        {%endif%}
+                        {%if request.user.is_authenticated%}
+                        <a class="cart-button"  style="color:white" href="/cart"> <svg class="cart-svg " width="16 " height="16 " viewBox="0 0 16 16 " style="color:white !important">
+							<path d="M15.32 2.405H4.887C3 2.405 2.46.805 2.46.805L2.257.21C2.208.085 2.083 0 1.946 0H.336C.1 0-.064.24.024.46l.644 1.945L3.11 9.767c.047.137.175.23.32.23h8.418l-.493 1.958H3.768l.002.003c-.017 0-.033-.003-.05-.003-1.06 0-1.92.86-1.92 1.92s.86 1.92 1.92 1.92c.99 0 1.805-.75 1.91-1.712l5.55.076c.12.922.91 1.636 1.867 1.636 1.04 0 1.885-.844 1.885-1.885 0-.866-.584-1.593-1.38-1.814l2.423-8.832c.12-.433-.206-.86-.655-.86 " fill="#fff "></path>
+						</svg>Cart<span class="item-number ">{{ Game_count_in_cart }}</span> </a> 
+                        {%endif%}
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
+    <!-- Header End -->
+
+    <!-- Breadcrumb Begin -->
+    <div class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__links">
+                        <a href="./index.html"><i class="fa fa-home"></i> Home</a>
+                        <a href="./categories.html">Categories</a>
+                        <span>Romance</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->
+
+    <!-- Anime Section Begin -->
+    <section class="anime-details spad" style="background-color:#0c062e;border-bottom: 2px solid #b01ba5;">
+        <div class="container">
+            <div class="anime__details__content">
+                <div class="container">
+                    <div class="panel panel-success">
+                      <div class="panel-heading">
+                        <h6 style="text-align:center;color:white" class="panel-title">My Cart</h6>
+                      </div>
+                      <br />
+                      <table class="table table-hover table-bordered" id="dev-table" style="background-color:white">
+                        <thead style="background-color:#081624;color:white">
+                          <tr>
+                            <th>Name</th>
+                            <th>Image</th>
+                            <th>Price</th>
+                            <th>Action</th>
+                  
+                          </tr>
+                        </thead>
+                        {% for p in Games %}
+                    {% if p %}
+                  
+                        <tr>
+                          <td> {{p.name}}</td>
+                          <td> <img src="{% static p.game_image.url %}" alt="Profile Pic" height="50px" width="50px" /></td>
+                          <td>₹ {{p.price}}</td>
+                  
+                          <td><a class="btn btn-danger btn-xs" href="{% url 'remove-from-cart' p.id  %}" onclick="return confirm('Are you sure want to delete?')"><i class="fa fa-trash" ></i></a></td>
+                  
+                        </tr>
+                        {%else%}
+                        <br><br><br>
+                        <h1 style="color:white">No Items in Cart</h1>
+                        {% endif %}
+                        {% endfor %}
+                      </table>
+                    </div>
+                  </div>
+                  <br><br><br>
+                  <div style="">
+                    <a href="/customer-address"><button class="btn btn-success" style="float:right"><span>Check Out </span></button></a>&nbsp;<button class="btn btn " style="background-color:#b01ba5;color:white">Total  ₹ {{total}}</button>
+                   
+                  </div>
+                
+              
+            </div>
+        </section>
+        <!-- Anime Section End -->
+
+        <!-- Footer Section Begin -->
+<footer class="footer-section">
+    <div class="container">
+        <a href="#" class="footer-logo">
+            <img src="{% static './front/img/glogo.png' %}" alt="">
+        </a>
+        <ul class="main-menu footer-menu">
+            <li><a href="">Home</a></li>
+            <li><a href="">Games</a></li>
+            <li><a href="">Reviews</a></li>
+            <li><a href="">News</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+        <div class="footer-social d-flex justify-content-center">
+            <a href="#"><i class="fa fa-pinterest"></i></a>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-dribbble"></i></a>
+            <a href="#"><i class="fa fa-behance"></i></a>
+        </div>
+        <div class="copyright"><a href="">GAMECATCH</a> 2023@ All rights reserved</div>
+    </div>
+</footer>
+  <!-- Footer Section End -->
+
+          <!-- Search model Begin -->
+          <div class="search-model">
+            <div class="h-100 d-flex align-items-center justify-content-center">
+                <div class="search-close-switch"><i class="icon_close"></i></div>
+                <form class="search-model-form">
+                    <input type="text" id="search-input" placeholder="Search here.....">
+                </form>
+            </div>
+        </div>
+        <!-- Search model end -->
+
+        <script src="{%static 'js/jquery-3.3.1.min.js' %}"></script>
+        <script src="{%static 'js/bootstrap.min.js' %}"></script>
+        <script src="{%static 'js/player.js' %}"></script>
+        <script src="{%static 'js/jquery.nice-select.min.js' %}"></script>
+        <script src="{%static 'js/mixitup.min.js' %}"></script>
+        <script src="{%static 'js/jquery.slicknav.js' %}"></script>
+        <script src="{%static 'js/owl.carousel.min.js' %}"></script>
+        <script src="{%static 'js/main.js' %}"></script>
+
+    </body>
+
+    </html>
+    {% endblock content %}

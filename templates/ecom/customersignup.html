@@ -1,0 +1,143 @@
+{% load widget_tweaks %}
+<head>
+	<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+
+</head>
+
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Orbitron", sans-serif;
+    }
+    
+    body {
+        {% comment %} background-image: url('https://i.imgur.com/vxXIDiJ.jpg'); {% endcomment %}
+        {% comment %} background-color:red; {% endcomment %}
+        background-size: cover;
+        background-position: center top;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-left:600px;
+    }
+    
+    .title {
+        font-size: 100px;
+        margin-bottom: 50px;
+        background: linear-gradient(#06348a, #6a82fb);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent
+    }
+    
+    form input {
+        font-size: 20px;
+        letter-spacing: 3px;
+        background: transparent;
+        color: #fff;
+        padding: 0 0 10px 5px;
+        margin: 25px 0;
+        outline: none;
+    }
+    
+    .user-input {
+        border: none;
+        border-bottom: 1px solid #fff;
+        {% comment %} margin-left:-840px; {% endcomment %}
+    }
+    .user-input2 {
+        border: none;
+        border-bottom: 1px solid #fff;
+        {% comment %} margin-left:-360px; {% endcomment %}
+    }
+    
+    .user-input:focus {
+        border-bottom: 1px solid;
+        border-image: linear-gradient(to right, #00f260, #0575e6);
+        border-image-slice: 1;
+    }
+    .user-input2:focus {
+        border-bottom: 1px solid;
+        border-image: linear-gradient(to right, #00f260, #0575e6);
+        border-image-slice: 1;
+    }
+    
+    .submit-button {
+        width: 100%;
+        text-transform: uppercase;
+        font-weight: 500;
+        color: #fff;
+        padding: 15px 0;
+        margin: 50px 0 0 0;
+        border: 1px solid #fff;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: .3s;
+    }
+    
+    .submit-button:hover {
+        background: rgba(255, 255, 255, .3);
+    }
+</style>  
+  
+  <body style="background-image: url('static/img/f.jpg');">
+    <form class="box" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+          <div class="title">Signup</div>
+          <div style="display:flex">
+          {% render_field userForm.first_name class="user-input" pattern="[a-z A-z\s]*" title="please enter First Name your in character" placeholder="First Name" %}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        {% render_field userForm.last_name class="user-input" pattern="[a-z A-z\s]*" title="please enter your Last Name in character" placeholder="Last Name" %}
+          </div>
+          <div style="display:flex">
+                          {% render_field userForm.username class="user-input" pattern="[a-z A-z\s 0-9 @]*" title="please enter your valid Username" placeholder="Username" %}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          
+                            {% render_field userForm.password class="user-input" id="myInput" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" %}<br>
+                            <input type="checkbox" title="Show Password" onclick="myFunction()">
+
+          </div>
+          <div style="display:flex">
+            {% render_field customerForm.address class="user-input" type="email" title="please enter your valid Email" placeholder="Email Address" %}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              
+                                {% render_field customerForm.mobile class="user-input" pattern="[0-9]{10}" title="Please enter your Ten digit Phone Number" placeholder="Contact" %}
+          </div>
+                                  {% render_field customerForm.profile_pic class="user-input2" placeholder="Profile pic" %}
+          </div>
+
+  
+          <input type="submit" value="Signup" class="submit-button">
+          <br>
+          <a href="/customerlogin" style="color:white">Already a user? </a>
+          <br />
+          <br />
+          <br />
+          <br />
+      </form>
+      <script>
+        function myFunction() {
+            var x = document.getElementById("myInput");
+            if (x.type === "password") {
+              x.type = "text";
+            } else {
+              x.type = "password";
+            }
+          }
+      </script>
+  </body>

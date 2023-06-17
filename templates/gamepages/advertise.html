@@ -1,0 +1,13 @@
+{% load static%}
+{% for p in Advertises %}
+                            {% if p %}
+                            <div class="product__sidebar__view__item set-bg" data-setbg="{% static p.adv_image.url %}">
+                                <div class="ep">{{p.posted_date}}</div>
+                                <div class="view"> {{p.title}}</div>
+                                <h5><a href="#">{{p.description}}</a></h5>
+                            </div>
+                            {%else%}
+      <br><br><br>
+      <h1>No Advertises!!</h1>
+      {% endif %}
+      {% endfor %}

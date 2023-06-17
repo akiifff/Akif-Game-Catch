@@ -1,0 +1,90 @@
+{% extends 'ecom/admin_base.html' %}
+{% load static %}
+{% block content %}
+
+
+<head>
+  <body style="background-image:url('static/img/a.jpg')">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+
+    .float{
+	position:fixed;
+	width:70px;
+	height:70px;
+	bottom:60px;
+	right:60px;
+	background-color:#008f92;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 5px 5px 5px #505050;
+}
+
+.my-float{
+	margin-top:22px;
+}
+  </style>
+</head>
+
+
+
+<div class="container">
+  <div class="panel panel">
+    <div class="panel-heading"  style="background-color:#008f92">
+      <h6 class="panel-title">Total Crack Games</h6>
+    </div>
+    <table class="table table-hover table-bordered" id="dev-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Image</th>
+          <th>Price</th>
+          <th>Description</th>
+          <th>Release Date</th>
+          <th>Crack Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      {% for p in CrackGames %}
+  {% if p %}
+
+      <tr>
+        <td> {{p.name}}</td>
+        <td> <img src="{% static p.c_game_image.url %}" alt="Profile Pic" height="40px" width="40px" /></td>
+        <td>{{p.price}}</td>
+        <td>{{p.description}}</td>
+        <td>{{p.release_date}}</td>
+        <td>{{p.crack_date}}</td>
+        <td><a class="btn btn-primary btn-xs" href="{% url 'update-crackgame' p.id  %}"><span class="glyphicon glyphicon-edit"></span></a>
+          <a class="btn btn-danger btn-xs" href="{% url 'delete-crackgame' p.id  %}"><span class="glyphicon glyphicon-trash"></span></a></td>
+
+      </tr>
+      {%else%}
+      <br><br><br>
+      <h1>No Crack Games!!</h1>
+      {% endif %}
+      {% endfor %}
+    </table>
+  </div>
+</div>
+<!-- add game floating button -->
+<a href="/admin-add-crackgame" class="float">
+<i class="fa fa-plus my-float"></i>
+</a>
+
+{% endblock content %}
